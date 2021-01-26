@@ -1,5 +1,7 @@
-![Hirst_dot_banner](./Banner/Inspired by.gif)
+
+![Hirst_dot_banner](Banner/Inspired by.gif)
 <br>
+
 Part of Pythom programming course. Using colorgram package, program extracts RGB color values used in an image and creates a Hirst dot painting using turtle module.
 Program automatically creates a random colored dot pattern, inspired by Hirst dotted paintings.
 
