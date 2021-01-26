@@ -20,11 +20,8 @@ def return_color_palette(image, number_of_colors):
         rgb_element = color_palette[index].rgb
         # print(rgb_element)  # prints a named tuple containing three values.
         # (named tuple is similar to JS objects by appearance and functionality).
-        tuple_rgb_data.append((rgb_element.r, rgb_element[1], rgb_element[2]))
+        tuple_rgb_data.append((rgb_element.r, rgb_element.g, rgb_element.b))
     return tuple_rgb_data
-
-
-print(choice(return_color_palette("./Images/hirst_dots.jpg", 10)))
 
 
 canvas = Screen()
@@ -34,16 +31,29 @@ turtle.colormode(255)
 
 dot_brush = Turtle()
 dot_brush.shape("classic")
-dot_brush.speed(7)
-move = 20
-
-for _ in range(move):
-    dot_brush.penup()
-    dot_brush.fd(20)
-    dot_brush.dot(20, choice(return_color_palette("./Images/hirst_dots.jpg", 10)))
-    # could use turtle.dot(size_of_dot, color_of_dot) function but it seems resolution of dot is
-    # worse then using stamp() function.
-    dot_brush.fd(20)
+dot_brush.speed(10)
 
 
-canvas.exitonclick()
+def draw_hirst_dot_art():
+    y_axis = 200
+    i = 1
+    while i <= 10:
+        dot_brush.hideturtle()
+        dot_brush.penup()
+        dot_brush.goto(-300, - y_axis)
+        # dot_brush.showturtle()
+
+        for _ in range(10):
+            dot_brush.penup()
+            dot_brush.fd(30)
+            dot_brush.dot(20, choice(return_color_palette("./Images/hirst_dots.jpg", 20)))
+            # could use turtle.dot(size_of_dot, color_of_dot) function but it seems resolution of dot is
+            # worse then using stamp() function.
+            dot_brush.fd(30)
+        i += 1
+        y_axis -= 50
+
+    canvas.exitonclick()
+
+
+draw_hirst_dot_art()
